@@ -48,6 +48,18 @@ export default {
       this.$refs[form].validate((valid)=>{
         if(valid){
           console.log(this.form)
+          this.axios.post('https://rapserver.sunmi.com/app/mock/340/login',this.form)
+          .then(res => {
+            console.log(res)
+            if(res.data.status === 200) {
+                localStorage.setItem('username', res.data.username)
+                this.$message({message: res.data.message, type: 'success'})
+                this.$router.push('/home') 
+            }
+          })
+          .catch(err => {
+            console.error(err)
+          })
         } else {
           console.error(this.form)
         }
