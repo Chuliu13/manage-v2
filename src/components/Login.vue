@@ -20,39 +20,20 @@
 </template>
 
 <script>
+import { nameRule, passRule } from "../utils/validate.js";
+// import { setToken } from "../utils/setToken.js";
+import { setToken } from "@/utils/setToken.js";
 export default {
   name: "Login",
   data() {
-    const validateName = (rule, value, callback) => {
-      // 请输入4-10位的昵称
-      let reg = /(^[a-zA-Z0-9]{4,10}$)/;
-      if (value === "") {
-        callback(new Error("请输入用户名"));
-      } else if (!reg.test(value)) {
-        callback(new Error("请输入4-10位用户名"));
-      } else {
-        callback();
-      }
-    };
-    const validatePass = (rule, value, callback) => {
-      // 6-12位密码需要包含大小写字母和数字以及特殊符号
-      let pass = /^\S*(?=\S{6,12})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*? ])\S*$/;
-      if (value === "") {
-        callback(new Error("请输入密码"));
-      } else if (!pass.test(value)) {
-        callback(new Error("6-12位密码需要包含大小写字母和数字以及特殊符号"));
-      } else {
-        callback();
-      }
-    };
     return {
       form: {
         username: "",
         password: "",
       },
       rules: {
-        username: [{ validator: validateName, trigger: "blur" }],
-        password: [{ validator: validatePass, trigger: "blur" }],
+        username: [{ validator: nameRule, trigger: "blur" }],
+        password: [{ validator: passRule, trigger: "blur" }],
       },
     };
   },
@@ -66,7 +47,7 @@ export default {
             .then((res) => {
               console.log(res);
               if (res.data.status === 200) {
-                localStorage.setItem("username", res.data.username);
+                setToken("username", res.data.username);
                 this.$message({ message: res.data.message, type: "success" });
                 this.$router.push("/home");
               }
