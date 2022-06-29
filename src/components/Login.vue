@@ -23,6 +23,7 @@
 import { nameRule, passRule } from "../utils/validate.js";
 // import { setToken } from "../utils/setToken.js";
 import { setToken } from "@/utils/setToken.js";
+import { login } from "@/api/api.js";
 export default {
   name: "Login",
   data() {
@@ -42,19 +43,24 @@ export default {
       this.$refs[form].validate((valid) => {
         if (valid) {
           console.log(this.form);
-          this.axios
-            .post("https://rapserver.sunmi.com/app/mock/340/login", this.form)
-            .then((res) => {
-              console.log(res);
+          /*  把这个登录方法封装成api进行调用
+          this.service.post('/login', this.form).then((res) => {
+            if (res.data.status === 200) {
+              setToken('username', res.data.username)
+              setToken('token', res.data.token)
+              this.$message({message: res.data.message, type: 'success'})
+              this.$router.push('/home')
+            }
+            console.log(res);
+          }); */
+          login(this.form).then(res => {
               if (res.data.status === 200) {
-                setToken("username", res.data.username);
-                this.$message({ message: res.data.message, type: "success" });
-                this.$router.push("/home");
+                setToken('username', res.data.username)
+                setToken('token', res.data.token)
+                this.$message({message: res.data.message, type: 'success'})
+                this.$router.push('/home')
               }
-            })
-            .catch((err) => {
-              console.error(err);
-            });
+          })
         } else {
           console.error(this.form);
         }
@@ -72,8 +78,7 @@ export default {
   .box-card {
     width: 450px;
     margin: 200px auto;
-    .el-card__header {
-      //这里为啥是__
+    .el-card__header {  //这里为啥是__
       font-size: 34px;
     }
     .el-button {
