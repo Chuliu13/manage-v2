@@ -3,7 +3,7 @@
     <el-aside width="200px">
       <!-- #545c64 -->
       <el-menu
-        router 
+        router
         default-active="2"
         class="el-menu-vertical-demo"
         @open="handleOpen"
@@ -18,10 +18,14 @@
               <i :class="item.iconClass"></i>
               <span>{{ item.name }}</span>
             </template>
-            <el-menu-item-group v-for="(child, index) in item.children" :key="index">
+            <el-menu-item-group
+              v-for="(child, index) in item.children"
+              :key="index"
+            >
               <el-menu-item :index="child.path">
                 <i :class="child.iconClass"></i>
-                {{child.name}}</el-menu-item>
+                {{ child.name }}</el-menu-item
+              >
             </el-menu-item-group>
           </el-submenu>
         </template>
@@ -46,13 +50,11 @@ export default {
 
   mounted() {},
   methods: {
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     },
   },
 };
