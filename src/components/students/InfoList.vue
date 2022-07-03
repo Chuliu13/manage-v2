@@ -109,7 +109,7 @@
 </template>
 
 <script>
-import { info, getInfo, updateInfo, infoDel } from "@/api/api.js";
+import { info, getInfo, infoDel } from "@/api/api.js";
 export default {
   data() {
     return {
@@ -190,7 +190,7 @@ export default {
     sure(form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
-          if (this.state) {
+          if ('post', this.state) {
             info(this.form).then((res) => {
               if (res.data.status === 200) {
                 this.getData();
@@ -199,7 +199,7 @@ export default {
               }
             });
           } else {
-            updateInfo(this.form).then((res) => {
+            info('put', this.form).then((res) => {
               if (res.data.status === 200) {
                 this.getData();
                 this.dialogFormVisible = false;

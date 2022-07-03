@@ -38,26 +38,21 @@ export function getInfo() {
     })
 }
 
-// 信息列表新增接口
-export function info(data) {
-    data = qs.stringify(data)
-    // let obj = {}
-    return service({
-        method: 'post',
-        url: '/info',
-        data
-    })
-}
+// // 信息列表新增接口
+// export function info(data) {
+//     data = qs.stringify(data)
+//     return service({
+//         method: 'post',
+//         url: '/info',
+//         data
+//     })
+// }
 
-// 信息列表修改接口
-export function updateInfo(data) {
+// 信息列表新增和修改接口
+export function info(type, data) {
     data = qs.stringify(data)
-    // let obj = {}
-    return service({
-        method: 'put',
-        url: '/info',
-        data
-    })
+    let obj = { method: type, url: '/info', data }
+    return service(obj)
 }
 
 // 信息列表删除接口
