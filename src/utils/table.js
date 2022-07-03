@@ -60,6 +60,7 @@ export function getTableData(root, url, params, arr) {
                     item[aItem] ? item[aItem + '_text'] = '是' : item[aItem + '_text'] = '否'
                 ])
             })
+            root.loading = false
         }
     })
     .catch(err => {
