@@ -9,6 +9,7 @@ export default new Router({
     routes: [
         {
             path: '/',
+            name:'首页',
             redirect: '/login', //重定向
             hidden: true,
             component: () => import('@/components/Login')
@@ -108,7 +109,7 @@ export default new Router({
             path: '/users',
             name: '用户中心',
             iconClass: 'fa fa-user',
-            component: () => import('@/components/users/User'),
+            component: () => import('@/components/Home'),
             children: [
                 {
                     path: '/users/user',
