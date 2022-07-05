@@ -106,8 +106,8 @@ mapFeatures.forEach(function(v) {
 // console.log("============geoCoordMap===================")
 // console.log(geoCoordMap)
 // console.log("================data======================")
-console.log(data)
-console.log(toolTipData)
+// console.log(data)
+// console.log(toolTipData)
 var max = 480,
     min = 9; // todo 
 var maxSize4Pin = 100,
@@ -166,7 +166,7 @@ let option = {
                         }
                     }
                 }
-                console.log(toolTiphtml)
+                // console.log(toolTiphtml)
                 // console.log(convertData(data))
                 return toolTiphtml;
             }
