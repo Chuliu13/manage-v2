@@ -74,11 +74,18 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #409eff;
+  background: url('../assets/image/bg.jpg') center no-repeat;
+  .el-card {
+      background: #65768557;
+  }
   .box-card {
     width: 450px;
     margin: 200px auto;
-    .el-card__header {  //这里为啥是__
+    color: #fff;
+    .el-form .el-form-item__label {
+        color: #fff;
+    }
+    .el-card__header {
       font-size: 34px;
     }
     .el-button {
