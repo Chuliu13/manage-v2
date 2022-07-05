@@ -148,7 +148,7 @@ export default {
                             color: '#1DE9B6',
                             width: 1,
                             opacity: 0.3,
-                            curveness: 0.3 // 弯曲程度
+                            curveness: 0.5 // 弯曲程度
                         }
                     },
                     data: linesData,
