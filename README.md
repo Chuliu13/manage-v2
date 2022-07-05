@@ -32,7 +32,7 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Nginx部署
-** 启动之前最好先检查配置文件,每次修改后也要验证 **
+**启动之前最好先检查配置文件,每次修改后也要验证**
 打开cmd `cd C:\Tool\nginx-1.16.1\` 输入 `nginx -t -c C:\Tool\nginx-1.16.1\conf\nginx.conf`
 
 ```
@@ -49,3 +49,5 @@ location @router {
     rewrite ^.*$ /index.html last; # Vue项目路由不是真实存在的
 }
 ```
+
+**这里一直 失败 报错 500 `error.log：could not find named location "@router"`**
