@@ -93,13 +93,13 @@ export default new Router({
                     path: '/home/travel',
                     name: '旅游地图',
                     iconClass: 'fa fa-line-chart',
-                    component: () => import('@/components/dataAnalysis/ScoreMap')
+                    component: () => import('@/components/dataAnalysis/TravelMap')
                 },
                 {
                     path: '/home/score',
                     name: '分数地图',
                     iconClass: 'fa fa-line-chart',
-                    component: () => import('@/components/dataAnalysis/TravelMap')
+                    component: () => import('@/components/dataAnalysis/ScoreMap')
                 },
             ]
 

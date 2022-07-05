@@ -81,7 +81,7 @@ export default {
                 map: 'china',
                 itemStyle: {
                     normal: {
-                        backgroundColor: 'rgb(147, 235, 245)',
+                        backgroundColor: 'rgb(147, 235, 248)',
                         borderWidth: 1,
                         areaColor: {
                             type: 'radial',
