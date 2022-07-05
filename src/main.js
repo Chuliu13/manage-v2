@@ -18,6 +18,15 @@ Vue.prototype.service = service
 Vue.prototype.$echarts = echarts 
 Vue.config.productionTip = false
 
+// 路由导航守卫
+// F12 -> Application -> Storage - >local Storage -> 删除username 测试
+router.beforeEach((to, from, next) => {
+  if(!localStorage.getItem('username')){
+    if (to.path !== '/login') {
+      next('/login')
+    } else next()
+  } next()
+})
 
 new Vue({
   router,

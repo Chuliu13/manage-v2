@@ -31,3 +31,21 @@ yarn lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### Nginx部署
+** 启动之前最好先检查配置文件,每次修改后也要验证 **
+打开cmd `cd C:\Tool\nginx-1.16.1\` 输入 `nginx -t -c C:\Tool\nginx-1.16.1\conf\nginx.conf`
+
+```
+设置监听端口号 8080 
+
+# nginx.conf
+location / {
+    root   C:\Users\17542\Desktop\project-v2\dist;
+    index  index.html index.htm;
+    try_files $uri $uri/ @router; # 解决页面刷新404问题  分号不要少,验证失败 
+}
+
+location @router {
+    rewrite ^.*$ /index.html last; # Vue项目路由不是真实存在的
+}
+```
