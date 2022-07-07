@@ -31,22 +31,34 @@ export function studentDel(id) {
 }
 
 // 信息列表查询接口
-export function getInfo() {
+export function getInfo(data) {
+    data = qs.stringify(data)
     return service({
         method: 'get',
         url: '/info',
+        data
     })
 }
 
-// // 信息列表新增接口
-// export function info(data) {
-//     data = qs.stringify(data)
-//     return service({
-//         method: 'post',
-//         url: '/info',
-//         data
-//     })
-// }
+// 信息列表修改接口
+export function updateInfo(data) {
+    data = qs.stringify(data)
+    return service({
+        method: 'put',
+        url: '/info',
+        data
+    })
+}
+
+// 信息列表新增接口
+export function infoAdd(data) {
+    data = qs.stringify(data)
+    return service({
+        method: 'post',
+        url: '/info',
+        data
+    })
+}
 
 // 信息列表新增和修改接口
 export function info(type, data) {
